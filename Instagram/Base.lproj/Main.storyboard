@@ -86,10 +86,10 @@
             </objects>
             <point key="canvasLocation" x="1962.3188405797102" y="68.973214285714278"/>
         </scene>
-        <!--Tab Bar Controller-->
+        <!--Tab Bar Controller View Controller-->
         <scene sceneID="Viz-9v-Tgf">
             <objects>
-                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="d1u-mP-cMi" sceneMemberID="viewController">
+                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="d1u-mP-cMi" customClass="TabBarControllerViewController" customModule="Instagram" customModuleProvider="target" sceneMemberID="viewController">
                     <toolbarItems/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="sNQ-eC-bN8">
                         <autoresizingMask key="autoresizingMask"/>
