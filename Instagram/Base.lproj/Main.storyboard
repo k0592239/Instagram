@@ -47,10 +47,47 @@
                     <view key="view" contentMode="scaleToFill" id="9uV-p8-6ka">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="r58-km-VnW">
+                                <rect key="frame" x="57" y="168" width="300" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="300" id="vYa-X5-oSb"/>
+                                </constraints>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                <state key="normal" title="表示名を変更" backgroundImage="btn"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ef0-RF-S1E">
+                                <rect key="frame" x="57" y="218" width="300" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="300" id="PJ4-6Q-cp8"/>
+                                </constraints>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                <state key="normal" title="ログアウト" backgroundImage="btn"/>
+                            </button>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="7LO-Ye-Ohv">
+                                <rect key="frame" x="57" y="124" width="300" height="34"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="300" id="wvx-aP-Kr7"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="OzK-Gm-LIg"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="r58-km-VnW" firstAttribute="centerX" secondItem="9uV-p8-6ka" secondAttribute="centerX" id="0PR-II-tEr"/>
+                            <constraint firstItem="ef0-RF-S1E" firstAttribute="centerX" secondItem="9uV-p8-6ka" secondAttribute="centerX" id="7sg-Qn-qRs"/>
+                            <constraint firstItem="r58-km-VnW" firstAttribute="top" secondItem="7LO-Ye-Ohv" secondAttribute="bottom" constant="10" id="TqS-yW-AJX"/>
+                            <constraint firstItem="ef0-RF-S1E" firstAttribute="top" secondItem="r58-km-VnW" secondAttribute="bottom" constant="10" id="hDG-wj-EvK"/>
+                            <constraint firstItem="7LO-Ye-Ohv" firstAttribute="centerX" secondItem="9uV-p8-6ka" secondAttribute="centerX" id="jWo-ix-Kvy"/>
+                            <constraint firstItem="7LO-Ye-Ohv" firstAttribute="top" secondItem="OzK-Gm-LIg" secondAttribute="top" constant="80" id="znk-Ed-Ifb"/>
+                        </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="設定" image="setting" id="Cg2-uG-mFX"/>
+                    <connections>
+                        <outlet property="displayNameTextField" destination="7LO-Ye-Ohv" id="7tE-ui-gdv"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TLD-xX-tFd" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
