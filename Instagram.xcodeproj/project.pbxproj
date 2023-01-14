@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		4F0A4E7B29727CF400E4FB44 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4F0A4E7A29727CF400E4FB44 /* GoogleService-Info.plist */; };
-		4F0A4E7E2972811900E4FB44 /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = 4F0A4E7D2972811900E4FB44 /* FirebaseAnalytics */; };
 		4FE7011D29718412007349DF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FE7011C29718412007349DF /* AppDelegate.swift */; };
 		4FE7011F29718412007349DF /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FE7011E29718412007349DF /* SceneDelegate.swift */; };
 		4FE7012429718412007349DF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4FE7012229718412007349DF /* Main.storyboard */; };
@@ -48,7 +47,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4F0A4E7E2972811900E4FB44 /* FirebaseAnalytics in Frameworks */,
 				DBF605B760FE994141753A8F /* Pods_Instagram.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -100,7 +98,6 @@
 				4DAD528C9B5558CED4BE385F /* Pods-Instagram.debug.xcconfig */,
 				2EA61F32928049367C41C7DE /* Pods-Instagram.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -131,7 +128,6 @@
 			);
 			name = Instagram;
 			packageProductDependencies = (
-				4F0A4E7D2972811900E4FB44 /* FirebaseAnalytics */,
 			);
 			productName = Instagram;
 			productReference = 4FE7011929718412007349DF /* Instagram.app */;
@@ -162,7 +158,6 @@
 			);
 			mainGroup = 4FE7011029718412007349DF;
 			packageReferences = (
-				4F0A4E7C2972811900E4FB44 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 			);
 			productRefGroup = 4FE7011A29718412007349DF /* Products */;
 			projectDirPath = "";
@@ -463,25 +458,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCRemoteSwiftPackageReference section */
-		4F0A4E7C2972811900E4FB44 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 8.0.0;
-			};
-		};
-/* End XCRemoteSwiftPackageReference section */
-
-/* Begin XCSwiftPackageProductDependency section */
-		4F0A4E7D2972811900E4FB44 /* FirebaseAnalytics */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 4F0A4E7C2972811900E4FB44 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
-			productName = FirebaseAnalytics;
-		};
-/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 4FE7011129718412007349DF /* Project object */;
 }
