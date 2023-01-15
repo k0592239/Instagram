@@ -29,7 +29,7 @@ class PostTableViewCell: UITableViewCell {
     func setPostData(_ postData: PostData) {
         // 画像の表示
         postImageView.sd_imageIndicator = SDWebImageActivityIndicator.gray
-        let imageRef = Storage.storage().reference().child(Const.ImagePath).child(postData.id + ".jpg")
+        let imageRef = Storage.storage().reference().child(Const.ImagePath).child(postData.id + ".jpeg")
         postImageView.sd_setImage(with: imageRef)
     
         // キャプションの表示
