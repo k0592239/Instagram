@@ -14,12 +14,19 @@ class PostTableViewCell: UITableViewCell {
     @IBOutlet weak var likeLabel: UILabel!
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var captionLabel: UILabel!
-
+    @IBOutlet weak var commentButton: UIButton!
+    @IBOutlet weak var commentText: UITextField!
+    @IBOutlet weak var commentPostButton: UIButton!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
     }
 
+    @IBAction func commentButton(_ sender: Any) {
+        commentText.isHidden.toggle()
+        commentPostButton.isHidden.toggle()
+    }
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
 
@@ -54,6 +61,8 @@ class PostTableViewCell: UITableViewCell {
             let buttonImage = UIImage(named: "like_none")
             self.likeButton.setImage(buttonImage, for: .normal)
         }
-    
+        commentText.layer.cornerRadius = 30.0
+        commentText.isHidden = true
+        commentPostButton.isHidden = true
     }
 }
