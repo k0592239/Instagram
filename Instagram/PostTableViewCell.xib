@@ -47,7 +47,7 @@
                         </constraints>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vf5-Vu-aOl">
-                        <rect key="frame" x="30" y="517" width="416" height="36"/>
+                        <rect key="frame" x="30" y="517" width="426" height="36"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
@@ -75,12 +75,15 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="コメントを追加..." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="1fP-dR-3IW">
-                        <rect key="frame" x="10" y="517" width="456" height="34"/>
+                        <rect key="frame" x="30" y="517" width="426" height="34"/>
                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                         <textInputTraits key="textInputTraits"/>
+                        <connections>
+                            <action selector="textEditingDidChanged:" destination="KGk-i7-Jjw" eventType="editingChanged" id="qpt-Mb-1Hg"/>
+                        </connections>
                     </textField>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tzZ-Cr-aS6">
-                        <rect key="frame" x="384.5" y="518.5" width="81.5" height="31"/>
+                        <rect key="frame" x="374.5" y="518.5" width="81.5" height="31"/>
                         <buttonConfiguration key="configuration" style="plain" title="投稿する"/>
                     </button>
                 </subviews>
@@ -91,9 +94,9 @@
                     <constraint firstItem="2hE-KD-w9O" firstAttribute="centerY" secondItem="uQS-IU-P94" secondAttribute="centerY" id="Gb8-qW-XSr"/>
                     <constraint firstItem="GOl-gU-SXa" firstAttribute="centerY" secondItem="uQS-IU-P94" secondAttribute="centerY" id="GhS-HY-PfA"/>
                     <constraint firstItem="1fP-dR-3IW" firstAttribute="top" secondItem="2hE-KD-w9O" secondAttribute="bottom" constant="10" id="Jgm-dy-b9e"/>
-                    <constraint firstItem="1fP-dR-3IW" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="KhE-QR-MRp"/>
+                    <constraint firstItem="1fP-dR-3IW" firstAttribute="leading" secondItem="vf5-Vu-aOl" secondAttribute="leading" id="KhE-QR-MRp"/>
                     <constraint firstItem="PHQ-II-ZMk" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="10" id="MYf-wI-cWj"/>
-                    <constraint firstAttribute="trailing" secondItem="1fP-dR-3IW" secondAttribute="trailing" constant="10" id="QCp-Zn-2A1"/>
+                    <constraint firstItem="vf5-Vu-aOl" firstAttribute="trailing" secondItem="1fP-dR-3IW" secondAttribute="trailing" id="QCp-Zn-2A1"/>
                     <constraint firstItem="2hE-KD-w9O" firstAttribute="leading" secondItem="uQS-IU-P94" secondAttribute="trailing" constant="10" id="Rbi-U6-mLV"/>
                     <constraint firstItem="vf5-Vu-aOl" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="10" id="YcA-O2-YlB"/>
                     <constraint firstItem="uQS-IU-P94" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="10" id="bqH-7b-6B1"/>
@@ -101,7 +104,7 @@
                     <constraint firstItem="6xa-8b-HpK" firstAttribute="centerY" secondItem="uQS-IU-P94" secondAttribute="centerY" id="fGT-7f-Ypp"/>
                     <constraint firstItem="GOl-gU-SXa" firstAttribute="top" secondItem="PHQ-II-ZMk" secondAttribute="bottom" constant="10" id="hLc-I5-nnU"/>
                     <constraint firstItem="5N3-gJ-CKR" firstAttribute="top" secondItem="PHQ-II-ZMk" secondAttribute="bottom" constant="10" id="hRa-y3-Gvp"/>
-                    <constraint firstAttribute="trailingMargin" secondItem="vf5-Vu-aOl" secondAttribute="trailing" constant="10" id="kQH-aR-ejb"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="vf5-Vu-aOl" secondAttribute="trailing" id="kQH-aR-ejb"/>
                     <constraint firstAttribute="bottomMargin" secondItem="vf5-Vu-aOl" secondAttribute="bottom" constant="10" id="lgO-ue-TTn"/>
                     <constraint firstItem="vf5-Vu-aOl" firstAttribute="top" secondItem="2hE-KD-w9O" secondAttribute="bottom" constant="10" id="lpf-Z8-1tu"/>
                     <constraint firstItem="uQS-IU-P94" firstAttribute="top" secondItem="PHQ-II-ZMk" secondAttribute="bottom" constant="10" id="luI-Nq-QjD"/>
@@ -116,6 +119,7 @@
             <connections>
                 <outlet property="captionLabel" destination="vf5-Vu-aOl" id="SmI-Mc-pkU"/>
                 <outlet property="commentButton" destination="5N3-gJ-CKR" id="LyX-8r-Yln"/>
+                <outlet property="commentCountLabel" destination="GOl-gU-SXa" id="7PU-6A-7Fz"/>
                 <outlet property="commentPostButton" destination="tzZ-Cr-aS6" id="1do-7W-Uc8"/>
                 <outlet property="commentText" destination="1fP-dR-3IW" id="t85-Og-OKx"/>
                 <outlet property="dateLabel" destination="6xa-8b-HpK" id="cph-mX-Ctd"/>

@@ -33,21 +33,6 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
         NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
          NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
     }
-    @objc func keyboardWillShow(_ notification: NSNotification) {
-        offset = tableView.contentOffset
-        if let keyboardHeight = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue.height {
-            tableView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: keyboardHeight, right: 0)
-        }
-    }
-
-    @objc func keyboardWillHide(_ notification: NSNotification) {
-        UIView.animate(withDuration: 0.2, animations: {
-            if let unwrappedOffset = self.offset {
-                self.tableView.contentOffset = unwrappedOffset
-            }
-            self.tableView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
-        })
-    }
     override func viewWillAppear(_ animated: Bool) {
         print("DEBUG_PRINT: viewWillAppear")
         // ログイン済みか確認
@@ -87,22 +72,11 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
         cell.setPostData(postArray[indexPath.row])
         // セル内のボタンのアクションをソースコードで設定する
         cell.likeButton.addTarget(self, action:#selector(handleButton(_:forEvent:)), for: .touchUpInside)
-//        cell.commentButton.addTarget(self, action:#selector(handleButton2(_:forEvent:)), for: .touchUpInside)
+        // コメントを投稿するボタンを押した時のアクションをソースコードで設定する
+        cell.commentPostButton.addTarget(self, action:#selector(handleButtonPostComment(_:forEvent:)), for: .touchUpInside)
 
         return cell
     }
-//    @objc func handleButton2(_ sender: UIButton, forEvent event: UIEvent) {
-//        print("DEBUG_PRINT: commentボタンがタップされました。")
-//
-//        let touch = event.allTouches?.first
-//        let point = touch!.location(in: self.tableView)
-//        let indexPath = tableView.indexPathForRow(at: point)
-//        // 配列からタップされたインデックスのデータを取り出す
-//        let postData = postArray[indexPath!.row]
-//        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath!) as! PostTableViewCell
-//        cell.commentText.isHidden.toggle()
-//
-//    }
     // セル内のボタンがタップされた時に呼ばれるメソッド
     @objc func handleButton(_ sender: UIButton, forEvent event: UIEvent) {
         print("DEBUG_PRINT: likeボタンがタップされました。")
@@ -128,11 +102,51 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
             postRef.updateData(["likes": updateValue])
         }
     }
+    // コメントを投稿するボタンを押したときの処理
+    @objc func handleButtonPostComment(_ sender: UIButton, forEvent event: UIEvent) {
+        print("DEBUG_PRINT: comment投稿ボタンがタップされました。")
+
+        let touch = event.allTouches?.first
+        let point = touch!.location(in: self.tableView)
+        let indexPath = tableView.indexPathForRow(at: point)
+        let selectCell = tableView.cellForRow(at: indexPath!) as! PostTableViewCell
+        print("DEBUG_PRINT commentText = \(selectCell.commentText.text!)")
+        // 配列からタップされたインデックスのデータを取り出す
+        let postData = postArray[indexPath!.row]
+        // FireStoreに投稿データを保存する
+        let name = Auth.auth().currentUser?.displayName
+        let commentDic = [
+            "name": name!,
+            "comment": selectCell.commentText.text!,
+        ] as [String : Any]
+        // 更新データを作成する
+        var updateValue : FieldValue
+        updateValue = FieldValue.arrayUnion([commentDic])
+
+        // commentsに更新データを書き込む
+        let postRef = Firestore.firestore().collection(Const.PostPath).document(postData.id)
+        postRef.updateData(["comments": updateValue])
+        // TableViewの表示を更新する
+        self.tableView.reloadData()
+    }
     @objc func dismissKeyboard(){
         // キーボードを閉じる
         view.endEditing(true)
     }
-//    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-//        50
-//    }
+    // キーボードを表示したときの処理
+    @objc func keyboardWillShow(_ notification: NSNotification) {
+        offset = tableView.contentOffset
+        if let keyboardHeight = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue.height {
+            tableView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: keyboardHeight, right: 0)
+        }
+    }
+    // キーボードを非表示にしたときの処理
+    @objc func keyboardWillHide(_ notification: NSNotification) {
+        UIView.animate(withDuration: 0.2, animations: {
+            if let unwrappedOffset = self.offset {
+                self.tableView.contentOffset = unwrappedOffset
+            }
+            self.tableView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
+        })
+    }
 }

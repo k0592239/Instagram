@@ -17,16 +17,34 @@ class PostTableViewCell: UITableViewCell {
     @IBOutlet weak var commentButton: UIButton!
     @IBOutlet weak var commentText: UITextField!
     @IBOutlet weak var commentPostButton: UIButton!
+    @IBOutlet weak var commentCountLabel: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
     }
-
+    // 吹き出しボタンを押したときの処理
     @IBAction func commentButton(_ sender: Any) {
+        // コメント入力欄の表示切り替え
         commentText.isHidden.toggle()
         commentPostButton.isHidden.toggle()
+        updateCommentPostButton()
     }
+    // コメント入力欄が変化したときの処理
+    @IBAction func textEditingDidChanged(_ sender: Any) {
+        // コメント入力欄の入力
+        updateCommentPostButton()
+    }
+    // コメント入力欄の入力状態に応じて、コメント投稿ボタンの状態を変更する
+    private func updateCommentPostButton() {
+     if commentText.text == "" {
+         commentPostButton.isEnabled = false
+         commentPostButton.layer.opacity = 0.4
+     } else {
+         commentPostButton.isEnabled = true
+         commentPostButton.layer.opacity = 1
+     }
+   }
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
 
@@ -61,8 +79,13 @@ class PostTableViewCell: UITableViewCell {
             let buttonImage = UIImage(named: "like_none")
             self.likeButton.setImage(buttonImage, for: .normal)
         }
+        // コメント関連
+        commentText.text = ""
         commentText.layer.cornerRadius = 30.0
         commentText.isHidden = true
         commentPostButton.isHidden = true
+        let commentCout =   postData.comments.count
+        commentCountLabel.text = "\(commentCout)"
+        
     }
 }
