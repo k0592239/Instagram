@@ -18,6 +18,7 @@ class PostTableViewCell: UITableViewCell {
     @IBOutlet weak var commentText: UITextField!
     @IBOutlet weak var commentPostButton: UIButton!
     @IBOutlet weak var commentCountLabel: UILabel!
+    @IBOutlet weak var commentDisplayLabel: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -79,13 +80,32 @@ class PostTableViewCell: UITableViewCell {
             let buttonImage = UIImage(named: "like_none")
             self.likeButton.setImage(buttonImage, for: .normal)
         }
-        // コメント関連
-        commentText.text = ""
-        commentText.layer.cornerRadius = 30.0
-        commentText.isHidden = true
-        commentPostButton.isHidden = true
+        // コメント数
         let commentCout =   postData.comments.count
         commentCountLabel.text = "\(commentCout)"
-        
+        // コメント入力欄
+        commentText.text = ""
+        commentText.layer.borderWidth = 1.5
+        commentText.layer.cornerRadius = 15
+        commentText.layer.borderColor = UIColor.gray.cgColor
+        commentText.clipsToBounds = true
+        commentText.isHidden = true
+        // 投稿するボタン
+        commentPostButton.isHidden = true
+        // コメント表示ラベル
+        var displayCommentText = ""
+        var nl = ""
+        postData.comments.forEach { rowComment in
+            if let name = rowComment["name"] ,
+               let comment = rowComment["comment"]
+            {
+                displayCommentText.append(nl)
+                displayCommentText.append("\(name) : \(comment)")
+                nl = "\n"
+            }
+        }
+        commentDisplayLabel.text = displayCommentText
+        commentDisplayLabel.layer.cornerRadius = 2
+        commentDisplayLabel.clipsToBounds = true
     }
 }

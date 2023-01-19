@@ -47,7 +47,14 @@
                         </constraints>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vf5-Vu-aOl">
-                        <rect key="frame" x="30" y="517" width="426" height="36"/>
+                        <rect key="frame" x="30" y="517" width="426" height="18.5"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KFB-Bg-8vH" userLabel="Comment Display Label">
+                        <rect key="frame" x="30" y="537.5" width="426" height="20.5"/>
+                        <color key="backgroundColor" red="0.89196764470000001" green="1" blue="0.92632000049999996" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
@@ -74,7 +81,7 @@
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="コメントを追加..." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="1fP-dR-3IW">
+                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="コメントを追加..." textAlignment="natural" adjustsFontForContentSizeCategory="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="1fP-dR-3IW">
                         <rect key="frame" x="30" y="517" width="426" height="34"/>
                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                         <textInputTraits key="textInputTraits"/>
@@ -89,23 +96,26 @@
                 </subviews>
                 <constraints>
                     <constraint firstItem="tzZ-Cr-aS6" firstAttribute="centerY" secondItem="1fP-dR-3IW" secondAttribute="centerY" id="2c6-bg-2Ls"/>
+                    <constraint firstItem="KFB-Bg-8vH" firstAttribute="topMargin" secondItem="vf5-Vu-aOl" secondAttribute="bottom" constant="10" id="5o8-Gx-r8W"/>
                     <constraint firstItem="PHQ-II-ZMk" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" id="69Y-vu-Qh4"/>
                     <constraint firstAttribute="trailingMargin" secondItem="6xa-8b-HpK" secondAttribute="trailing" constant="10" id="BA1-L4-x6p"/>
                     <constraint firstItem="2hE-KD-w9O" firstAttribute="centerY" secondItem="uQS-IU-P94" secondAttribute="centerY" id="Gb8-qW-XSr"/>
                     <constraint firstItem="GOl-gU-SXa" firstAttribute="centerY" secondItem="uQS-IU-P94" secondAttribute="centerY" id="GhS-HY-PfA"/>
                     <constraint firstItem="1fP-dR-3IW" firstAttribute="top" secondItem="2hE-KD-w9O" secondAttribute="bottom" constant="10" id="Jgm-dy-b9e"/>
+                    <constraint firstItem="KFB-Bg-8vH" firstAttribute="trailing" secondItem="vf5-Vu-aOl" secondAttribute="trailing" id="KeQ-KD-UBo"/>
                     <constraint firstItem="1fP-dR-3IW" firstAttribute="leading" secondItem="vf5-Vu-aOl" secondAttribute="leading" id="KhE-QR-MRp"/>
                     <constraint firstItem="PHQ-II-ZMk" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="10" id="MYf-wI-cWj"/>
                     <constraint firstItem="vf5-Vu-aOl" firstAttribute="trailing" secondItem="1fP-dR-3IW" secondAttribute="trailing" id="QCp-Zn-2A1"/>
                     <constraint firstItem="2hE-KD-w9O" firstAttribute="leading" secondItem="uQS-IU-P94" secondAttribute="trailing" constant="10" id="Rbi-U6-mLV"/>
                     <constraint firstItem="vf5-Vu-aOl" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="10" id="YcA-O2-YlB"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="KFB-Bg-8vH" secondAttribute="bottom" constant="5" id="bo2-9I-goc"/>
                     <constraint firstItem="uQS-IU-P94" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="10" id="bqH-7b-6B1"/>
                     <constraint firstItem="5N3-gJ-CKR" firstAttribute="leading" secondItem="2hE-KD-w9O" secondAttribute="trailing" constant="5" id="doS-lb-Yin"/>
                     <constraint firstItem="6xa-8b-HpK" firstAttribute="centerY" secondItem="uQS-IU-P94" secondAttribute="centerY" id="fGT-7f-Ypp"/>
                     <constraint firstItem="GOl-gU-SXa" firstAttribute="top" secondItem="PHQ-II-ZMk" secondAttribute="bottom" constant="10" id="hLc-I5-nnU"/>
                     <constraint firstItem="5N3-gJ-CKR" firstAttribute="top" secondItem="PHQ-II-ZMk" secondAttribute="bottom" constant="10" id="hRa-y3-Gvp"/>
+                    <constraint firstItem="KFB-Bg-8vH" firstAttribute="leading" secondItem="vf5-Vu-aOl" secondAttribute="leading" id="hgc-Ae-Vjt"/>
                     <constraint firstAttribute="trailingMargin" secondItem="vf5-Vu-aOl" secondAttribute="trailing" id="kQH-aR-ejb"/>
-                    <constraint firstAttribute="bottomMargin" secondItem="vf5-Vu-aOl" secondAttribute="bottom" constant="10" id="lgO-ue-TTn"/>
                     <constraint firstItem="vf5-Vu-aOl" firstAttribute="top" secondItem="2hE-KD-w9O" secondAttribute="bottom" constant="10" id="lpf-Z8-1tu"/>
                     <constraint firstItem="uQS-IU-P94" firstAttribute="top" secondItem="PHQ-II-ZMk" secondAttribute="bottom" constant="10" id="luI-Nq-QjD"/>
                     <constraint firstItem="2hE-KD-w9O" firstAttribute="top" secondItem="PHQ-II-ZMk" secondAttribute="bottom" constant="10" id="nX2-6v-pfJ"/>
@@ -120,6 +130,7 @@
                 <outlet property="captionLabel" destination="vf5-Vu-aOl" id="SmI-Mc-pkU"/>
                 <outlet property="commentButton" destination="5N3-gJ-CKR" id="LyX-8r-Yln"/>
                 <outlet property="commentCountLabel" destination="GOl-gU-SXa" id="7PU-6A-7Fz"/>
+                <outlet property="commentDisplayLabel" destination="KFB-Bg-8vH" id="qyK-fx-5TK"/>
                 <outlet property="commentPostButton" destination="tzZ-Cr-aS6" id="1do-7W-Uc8"/>
                 <outlet property="commentText" destination="1fP-dR-3IW" id="t85-Og-OKx"/>
                 <outlet property="dateLabel" destination="6xa-8b-HpK" id="cph-mX-Ctd"/>
