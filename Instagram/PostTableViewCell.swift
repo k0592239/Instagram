@@ -33,7 +33,7 @@ class PostTableViewCell: UITableViewCell {
     }
     // コメント入力欄が変化したときの処理
     @IBAction func textEditingDidChanged(_ sender: Any) {
-        // コメント入力欄の入力
+        // コメント入力欄の入力状態に応じて、コメント投稿ボタンの状態を変更する
         updateCommentPostButton()
     }
     // コメント入力欄の入力状態に応じて、コメント投稿ボタンの状態を変更する

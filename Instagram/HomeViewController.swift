@@ -28,7 +28,9 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
 
         // 背景をタップしたらdismissKeyboardメソッドを呼ぶように設定する
         let tapGesture: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
+        tapGesture.cancelsTouchesInView = false // ジェスチャーが認識されたときのタッチがビューに配信するようにする
         self.view.addGestureRecognizer(tapGesture)
+
         // keyboard
         NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
          NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
